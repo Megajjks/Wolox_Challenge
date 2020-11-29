@@ -1,0 +1,43 @@
+@import '../../../styleVariables.scss';
+
+@mixin Button($bkgColor: $backgroundSecundary, $colortxt: $fontColorWhite) {
+  background-color: $bkgColor;
+  font-family: montserrat;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 0.6rem 5rem;
+  color: $colortxt;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+
+.Button-Secundary {
+  @include Button(transparent, $fontColorSecundary);
+  border: 2px solid $backgroundSecundary;
+  &:hover {
+    color: $fontColorWhite;
+    background-color: $backgroundSecundary;
+  }
+  &:active {
+    background-color: rgba(21, 169, 229, 0.6);
+  }
+}
+.Button-Primary {
+  @include Button;
+  border: 2px solid $backgroundSecundary;
+  box-shadow: 2px 2px 5px #999;
+  &:hover {
+    color: $fontColorWhite;
+    border: 2px solid #051937;
+    background-color: #051937;
+  }
+  &:active {
+    background-color: rgba(5, 25, 55, 0.9);
+    box-shadow: none;
+  }
+}
