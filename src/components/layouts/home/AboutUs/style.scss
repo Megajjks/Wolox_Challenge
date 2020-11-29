@@ -1,0 +1,46 @@
+@import '../../../../styleVariables.scss';
+@import '../../../mixins.scss';
+
+.aboutus {
+  @include flexColumnBox;
+  height: 60vh;
+  background-image: url('../../../../assets/images/Backgrounds/Bg_Footer.png');
+  background-color: $background;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  & > h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  & > h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 1rem 0 2rem 0;
+    text-align: center;
+  }
+  @media (max-width: $table-portrait) {
+    & > h1 {
+      font-size: 2rem;
+    }
+    & > h2 {
+      font-size: 1rem;
+    }
+  }
+  @media (max-width: $min-phone-landscape) {
+    & > h1 {
+      font-size: 1.5rem;
+    }
+    & > h2 {
+      font-size: 0.8rem;
+    }
+    padding: 0 1rem;
+  }
+}
+
+.accent-Blue-Text {
+  font-weight: 600;
+  color: $fontColorSecundary;
+}
