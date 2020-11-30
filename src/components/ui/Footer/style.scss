@@ -1,0 +1,17 @@
+@import '../../../styleVariables.scss';
+
+.footer-Wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../../assets/images/Backgrounds/Bg_Footer.png');
+  background-color: $background;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  padding: 1.5rem;
+  & > p {
+    font-weight: 500;
+    letter-spacing: 8px;
+  }
+}

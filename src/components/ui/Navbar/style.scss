@@ -1,0 +1,98 @@
+@import '../../../styleVariables.scss';
+
+@mixin Menu-Item {
+  list-style-type: none;
+  margin-right: 3.5rem;
+  cursor: pointer;
+  & > a {
+    color: $fontColor;
+    font-size: 1.3rem;
+    transition: color 0.5s ease;
+  }
+  & > a:hover {
+    color: $fontColorSecundary;
+  }
+  & > a:link,
+  a:visited {
+    text-decoration: none;
+  }
+  @media (max-width: $table-portrait) {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+  }
+}
+
+.navbar-Wrapper {
+  background-image: url('../../../assets/images/Backgrounds/Bg_Header.png');
+  background-color: $background;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+  padding: 2.5rem 4rem;
+
+  & > img {
+    max-width: 15%;
+    @media (max-width: $table-portrait) {
+      max-width: 30%;
+    }
+  }
+}
+
+.menu {
+  width: inherit;
+  line-height: 20px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  & > li {
+    @include Menu-Item;
+  }
+  @media (max-width: $table-portrait) {
+    display: none;
+  }
+}
+
+.buttons-Mobile {
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+  & > img {
+    z-index: 30;
+    max-width: 8%;
+  }
+  @media (max-width: $table-portrait) {
+    display: flex;
+  }
+}
+
+.menu-Mobile {
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.9;
+  z-index: 20;
+  margin: 0;
+  padding: 1rem;
+  width: inherit;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  transition: all 2s ease;
+  & > li {
+    @include Menu-Item;
+  }
+}
