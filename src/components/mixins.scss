@@ -1,0 +1,21 @@
+/* Boxes */
+@mixin flexRowBox(
+  $direction: row,
+  $wrap: wrap,
+  $mainAxis: space-around,
+  $crossAxis: center
+) {
+  width: inherit;
+  display: flex;
+  flex-flow: $direction $wrap;
+  justify-content: $mainAxis;
+  align-items: $crossAxis;
+}
+
+@mixin flexColumnBox($mainAxis: center, $crossAxis: center) {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: $mainAxis;
+  align-items: $crossAxis;
+}

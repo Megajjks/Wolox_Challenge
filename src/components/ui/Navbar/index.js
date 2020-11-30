@@ -3,6 +3,7 @@ import Brand from '../../../assets/images/logo_full_color.svg'
 import MenuIco from '../../../assets/images/menu.svg'
 import HiddenIco from '../../../assets/images/close.svg'
 import Button from '../Button'
+import { HashLink } from 'react-router-hash-link'
 import './style.scss'
 
 const Navbar = () => {
@@ -14,24 +15,32 @@ const Navbar = () => {
   }
 
   return (
-    <div className="Navbar-Wrapper">
+    <div className="navbar-Wrapper">
       <img src={Brand} alt="wolox-brand" />
-      <ul className="Menu">
+      <ul className="menu">
         {navItems.map((item, idx) => (
-          <li key={idx}>{item}</li>
+          <li key={idx}>
+            <HashLink to={`/#${item}`} smooth>
+              {item}
+            </HashLink>
+          </li>
         ))}
         <Button type="secundary" title="Login" url="/" size="50%" />
       </ul>
-      <div className="Buttons-Mobile">
+      <div className="buttons-Mobile">
         <img
           src={menu ? HiddenIco : MenuIco}
           alt={menu ? 'close menu' : 'open menu'}
           onClick={ShowMenu}
         />
         {menu && (
-          <ul className="Menu-Mobile">
+          <ul className="menu-Mobile">
             {navItems.map((item, idx) => (
-              <li key={idx}>{item}</li>
+              <li key={idx}>
+                <HashLink onClick={ShowMenu} to={`/#${item}`} smooth>
+                  {item}
+                </HashLink>
+              </li>
             ))}
             <Button type="secundary" title="Login" url="/" size="50%" />
           </ul>

@@ -3,10 +3,18 @@
 @mixin Menu-Item {
   list-style-type: none;
   margin-right: 3.5rem;
-  transition: color 0.5s ease;
   cursor: pointer;
-  &:hover {
+  & > a {
+    color: $fontColor;
+    font-size: 1.3rem;
+    transition: color 0.5s ease;
+  }
+  & > a:hover {
     color: $fontColorSecundary;
+  }
+  & > a:link,
+  a:visited {
+    text-decoration: none;
   }
   @media (max-width: $table-portrait) {
     font-size: 1.8rem;
@@ -14,7 +22,7 @@
   }
 }
 
-.Navbar-Wrapper {
+.navbar-Wrapper {
   background-image: url('../../../assets/images/Backgrounds/Bg_Header.png');
   background-color: $background;
   background-repeat: no-repeat;
@@ -26,7 +34,7 @@
   z-index: 10;
   position: sticky;
   top: 0;
-  padding: 2.5rem 3rem;
+  padding: 2.5rem 4rem;
 
   & > img {
     max-width: 15%;
@@ -36,7 +44,7 @@
   }
 }
 
-.Menu {
+.menu {
   width: inherit;
   line-height: 20px;
   font-weight: 600;
@@ -52,7 +60,7 @@
   }
 }
 
-.Buttons-Mobile {
+.buttons-Mobile {
   display: none;
   justify-content: flex-end;
   align-items: center;
@@ -65,7 +73,7 @@
   }
 }
 
-.Menu-Mobile {
+.menu-Mobile {
   display: flex;
   position: fixed;
   left: 0;

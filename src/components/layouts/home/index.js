@@ -1,7 +1,14 @@
+import Hero from './Hero'
+import Information from './Information'
+import Benefits from './Benefits'
+import AboutUs from './AboutUs'
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
+    <div id="Inicio">
+      <Hero />
+      <Information />
+      <Benefits />
+      <AboutUs />
     </div>
   )
 }

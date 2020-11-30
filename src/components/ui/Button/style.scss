@@ -16,7 +16,7 @@
   }
 }
 
-.Button-Secundary {
+.button-Secundary {
   @include Button(transparent, $fontColorSecundary);
   border: 2px solid $backgroundSecundary;
   &:hover {
@@ -27,7 +27,7 @@
     background-color: rgba(21, 169, 229, 0.6);
   }
 }
-.Button-Primary {
+.button-Primary {
   @include Button;
   border: 2px solid $backgroundSecundary;
   box-shadow: 2px 2px 5px #999;
