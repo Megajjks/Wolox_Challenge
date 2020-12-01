@@ -25,7 +25,12 @@ const Navbar = () => {
             </HashLink>
           </li>
         ))}
-        <Button type="secundary" title="Login" url="/" size="50%" />
+        <Button
+          type="secundary"
+          title="Registrarse"
+          url="/register"
+          size="50%"
+        />
       </ul>
       <div className="buttons-Mobile">
         <img
@@ -42,7 +47,12 @@ const Navbar = () => {
                 </HashLink>
               </li>
             ))}
-            <Button type="secundary" title="Login" url="/" size="50%" />
+            <Button
+              type="secundary"
+              title="Registrarse"
+              url="/register"
+              size="50%"
+            />
           </ul>
         )}
       </div>
