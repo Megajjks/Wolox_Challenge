@@ -29,6 +29,38 @@ export const notify = (type, msg) => {
   }
 }
 
+/* Modify api arrangement */
+export const restructureData = (data) => {
+  const newData = data.map((item, idx) => ({
+    ...item,
+    isFavorite: false,
+    id: idx,
+  }))
+  return newData
+}
+
+/* Update one data teach */
+export const updateTeachnologie = (list, id, flag) => {
+  const newList = list.map((item) => {
+    if (item.id === id) {
+      return { ...item, isFavorite: !flag }
+    }
+    return item
+  })
+  return newList
+}
+
+/* Save data in the localStorage */
+export const saveDataLocalStorage = (nameKey, data) => {
+  localStorage.setItem(nameKey, JSON.stringify(data))
+}
+
+/* Count the technologies favorite */
+export const countTechnologiesFav = (data) => {
+  const totalTechnologies = data.filter((technologie) => technologie.isFavorite)
+  return totalTechnologies.length
+}
+
 /* Data of benefits in the landingpage */
 export const benefits = [
   {

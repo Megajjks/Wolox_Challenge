@@ -1,28 +1,7 @@
 @import '../../../styleVariables.scss';
+@import '../../mixins.scss';
 
-@mixin Menu-Item {
-  list-style-type: none;
-  margin-right: 3.5rem;
-  cursor: pointer;
-  & > a {
-    color: $fontColor;
-    font-size: 1.3rem;
-    transition: color 0.5s ease;
-  }
-  & > a:hover {
-    color: $fontColorSecundary;
-  }
-  & > a:link,
-  a:visited {
-    text-decoration: none;
-  }
-  @media (max-width: $table-portrait) {
-    font-size: 1.8rem;
-    margin: 1rem 0;
-  }
-}
-
-.navbar-Wrapper {
+.navbar-wrapper {
   background-image: url('../../../assets/images/Backgrounds/Bg_Header.png');
   background-color: $background;
   background-repeat: no-repeat;
@@ -60,20 +39,20 @@
   }
 }
 
-.buttons-Mobile {
+.buttons-mobile {
   display: none;
   justify-content: flex-end;
   align-items: center;
   & > img {
     z-index: 30;
-    max-width: 8%;
+    max-width: 9%;
   }
   @media (max-width: $table-portrait) {
     display: flex;
   }
 }
 
-.menu-Mobile {
+.menu-mobile {
   display: flex;
   position: fixed;
   left: 0;
@@ -94,5 +73,52 @@
   transition: all 2s ease;
   & > li {
     @include Menu-Item;
+  }
+}
+
+.favorite-box {
+  @include flexRowBox(row, nowrap, center, flex-end);
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 42px;
+  height: 42px;
+  background-image: url('../../../assets/images/programming.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  & > p {
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: $backgroundSecundary;
+    color: $fontColorWhite;
+    margin: 0;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  @media (max-width: $table-portrait) {
+    width: 32px;
+    height: 32px;
+    & > p {
+      width: 15px;
+      height: 15px;
+      font-size: 12px;
+    }
+  }
+  @media (max-width: $min-phone-landscape) {
+    width: 20px;
+    height: 20px;
+    & > p {
+      width: 10px;
+      height: 10px;
+      font-size: 8px;
+    }
+  }
+  @media (max-width: $min-phone-portrait) {
+    width: 15px;
+    height: 15px;
   }
 }

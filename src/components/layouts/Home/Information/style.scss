@@ -4,7 +4,7 @@
 .information {
   @include flexRowBox(row, wrap, space-between, center);
 }
-.information-Numbers {
+.information-numbers {
   @include flexColumnBox;
   background-image: url(../../../../assets/images/img_woloxer.png);
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@
     }
   }
 }
-.information-Paragraph {
+.information-paragraph {
   background-color: #f2f5fa;
   @include flexColumnBox;
   flex: 1 1 30%;
@@ -53,11 +53,11 @@
   }
 }
 
-.accent-Green-Text {
+.accent-green-text {
   font-weight: 700;
   color: $fontColorAccent;
 }
-.accent-Blue-Text {
+.accent-blue-text {
   font-weight: 700;
   color: $fontColorSecundary;
 }

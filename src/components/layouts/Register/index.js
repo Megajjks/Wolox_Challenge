@@ -9,10 +9,16 @@ import {
   SEND_DATA_FORM_SUCCESS,
   SEND_DATA_FORM_ERROR,
 } from '../../context/types'
-import { countrys, FilterProvince, notify } from '../../../helpers'
+import {
+  countrys,
+  FilterProvince,
+  notify,
+  saveDataLocalStorage,
+} from '../../../helpers'
 import api from '../../../helpers/api'
 import Button from '../../ui/Button'
 import Spinner from '../../ui/Spinner'
+import { useHistory } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './style.scss'
@@ -30,6 +36,7 @@ const Register = () => {
     confirmPassword,
     terms,
   } = state.form
+  const history = useHistory()
 
   /* Regx */
   const regxPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/
@@ -125,8 +132,9 @@ const Register = () => {
         type: SEND_DATA_FORM_SUCCESS,
         payload: data,
       })
-      saveData({ ...newData, ...data })
+      saveDataLocalStorage('user', { ...newData, ...data })
       notify('success', '☑️  Datos registrados correctamente')
+      history.push('/#Inicio')
     } catch {
       dispatch({
         type: SEND_DATA_FORM_ERROR,
@@ -139,21 +147,17 @@ const Register = () => {
     }
   }
 
-  const saveData = (data) => {
-    localStorage.setItem('user', JSON.stringify(data))
-  }
-
   return (
-    <div className="register-Wrapper">
+    <div className="register-wrapper">
       <h1>
-        Empieza tu <span className="accent-Blue-Text">historia</span> con{' '}
-        <span className="accent-Green-Text">nosotros</span>
+        Empieza tu <span className="accent-blue-text">historia</span> con{' '}
+        <span className="accent-green-text">nosotros</span>
       </h1>
       <h3>
         A continuación proporcionanos los siguientes datos para poder conocerte
         mejor y tener una cuenta para darte seguimiento.
       </h3>
-      <form className="form-Wrapper" onSubmit={sendData}>
+      <form className="form-wrapper" onSubmit={sendData}>
         <label>Nombre(s)</label>
         <input
           type="text"
@@ -256,7 +260,7 @@ const Register = () => {
             </p>
           </div>
         )}
-        <div className="terms-Box">
+        <div className="terms-box">
           <input
             type="checkbox"
             id="terms"

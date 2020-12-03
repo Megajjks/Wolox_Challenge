@@ -5,7 +5,7 @@ const AboutUs = () => {
     <div className="aboutus">
       <h1>
         Gracias por{' '}
-        <span className="accent-Blue-Text">completar el ejercicio</span>
+        <span className="accent-blue-text">completar el ejercicio</span>
       </h1>
       <h2>Te invitamos a ver mas información</h2>
       <Button

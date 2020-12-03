@@ -4,10 +4,10 @@ import './style.scss'
 const Information = () => {
   return (
     <div className="information">
-      <div className="information-Numbers">
+      <div className="information-numbers">
         <h1>
-          <span className="accent-Green-Text">350 +</span>{' '}
-          <span className="accent-Blue-Text">Woloxers</span>
+          <span className="accent-green-text">350 +</span>{' '}
+          <span className="accent-blue-text">Woloxers</span>
         </h1>
         <div className="twitter-box">
           <img src={TwitterIco} alt="twitter Wolox" />
@@ -21,11 +21,11 @@ const Information = () => {
           url="https://twitter.com/Wolox"
         />
       </div>
-      <div className="information-Paragraph">
+      <div className="information-paragraph">
         <h1>Trabajamos para</h1>
         <h1>
-          <span className="accent-Blue-Text">convertir</span>{' '}
-          <span className="accent-Green-Text">ideas</span> en
+          <span className="accent-blue-text">convertir</span>{' '}
+          <span className="accent-green-text">ideas</span> en
         </h1>
         <h1>productos.</h1>
       </div>

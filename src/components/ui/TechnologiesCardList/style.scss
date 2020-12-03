@@ -1,0 +1,6 @@
+@import '../../mixins.scss';
+
+.technologies-list {
+  width: 90%;
+  @include gridMasonry;
+}

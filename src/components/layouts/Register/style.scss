@@ -1,7 +1,7 @@
 @import '../../../styleVariables.scss';
 @import '../../mixins.scss';
 
-.register-Wrapper {
+.register-wrapper {
   @include flexColumnBox;
   background-image: url('../../../assets/images/Backgrounds//Bg_Footer.png');
   background-size: cover;
@@ -33,7 +33,7 @@
   }
 }
 
-.form-Wrapper {
+.form-wrapper {
   @include flexColumnBox;
   width: 100%;
 
@@ -95,7 +95,7 @@
   }
 }
 
-.terms-Box {
+.terms-box {
   @include flexRowBox(row, nowraper, center, center);
   margin-bottom: 2rem;
   & > label {
@@ -109,11 +109,11 @@
   }
 }
 
-.accent-Green-Text {
+.accent-green-text {
   font-weight: 700;
   color: $fontColorAccent;
 }
-.accent-Blue-Text {
+.accent-blue-text {
   font-weight: 700;
   color: $fontColorSecundary;
 }
