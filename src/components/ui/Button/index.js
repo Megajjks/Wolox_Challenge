@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom'
 import './style.scss'
-const Button = ({ type, title, url, colortxt, typeRedirect }) => {
+const Button = ({ type, title, url, colortxt, typeRedirect, isDisabled }) => {
   const history = useHistory()
 
   const redirect = (title) => () => {
@@ -13,6 +13,7 @@ const Button = ({ type, title, url, colortxt, typeRedirect }) => {
       className={type === 'secundary' ? 'button-Secundary' : 'button-Primary'}
       onClick={redirect(url)}
       style={colortxt && { color: colortxt }}
+      disabled={isDisabled}
     >
       {title}
     </button>
