@@ -2,14 +2,12 @@
 @import '../../mixins.scss';
 
 .navbar-wrapper {
+  @include flexRowBox(row, nowrap, space-between, center);
   background-image: url('../../../assets/images/Backgrounds/Bg_Header.png');
   background-color: $background;
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   z-index: 10;
   position: sticky;
   top: 0;
@@ -24,13 +22,11 @@
 }
 
 .menu {
+  @include flexRowBox(row, nowrap, space-around, center);
   width: inherit;
   line-height: 20px;
   font-weight: 600;
   font-size: 1.5rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   & > li {
     @include Menu-Item;
   }
@@ -40,9 +36,8 @@
 }
 
 .buttons-mobile {
+  @include flexRowBox(row, nowrap, flex-end, center);
   display: none;
-  justify-content: flex-end;
-  align-items: center;
   & > img {
     z-index: 30;
     max-width: 9%;
@@ -53,7 +48,7 @@
 }
 
 .menu-mobile {
-  display: flex;
+  @include flexColumnBox;
   position: fixed;
   left: 0;
   right: 0;
@@ -66,9 +61,6 @@
   width: inherit;
   height: auto;
   background-color: rgb(255, 255, 255);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-size: 32px;
   transition: all 2s ease;
   & > li {

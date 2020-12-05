@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react'
 import TechnologiesContext from '../../context/Technologies/TechnologiesContext'
 import TechnologiesCardList from '../../ui/TechnologiesCardList'
 import TechnologiesSection from '../../ui/TechnologiesSection'
+import FilterBar from '../../ui/FilterBar'
 import Spinner from '../../ui/Spinner'
 import './style.scss'
 
@@ -25,7 +26,12 @@ const Technologies = () => {
     if (technologiesList.length <= 0) {
       return <h2>Sin Tecnologias</h2>
     }
-    return <TechnologiesCardList technologies={technologiesList} />
+    return (
+      <>
+        <FilterBar />
+        <TechnologiesCardList technologies={technologiesList} />
+      </>
+    )
   }
 
   return (

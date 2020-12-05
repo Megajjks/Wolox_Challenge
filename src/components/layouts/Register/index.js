@@ -18,6 +18,7 @@ import {
 import api from '../../../helpers/api'
 import Button from '../../ui/Button'
 import Spinner from '../../ui/Spinner'
+import { useAuth } from '../../context/AuthContext'
 import { useHistory } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -37,7 +38,7 @@ const Register = () => {
     terms,
   } = state.form
   const history = useHistory()
-
+  const authContext = useAuth()
   /* Regx */
   const regxPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/
 
@@ -132,7 +133,8 @@ const Register = () => {
         type: SEND_DATA_FORM_SUCCESS,
         payload: data,
       })
-      saveDataLocalStorage('user', { ...newData, ...data })
+      saveDataLocalStorage('user', newData)
+      authContext.setToken(data)
       notify('success', '☑️  Datos registrados correctamente')
       history.push('/#Inicio')
     } catch {

@@ -256,3 +256,18 @@ export const countrys = [
     ],
   },
 ]
+
+/* Data of types technologies */
+export const typesTech = [
+  { value: '', label: 'Filtrar por' },
+  { value: 'FrontEnd', label: 'Front-End' },
+  { value: 'BackEnd', label: 'Back-End' },
+  { value: 'Mobile', label: 'Mobile' },
+]
+
+/* Data of names sort technologies */
+export const sortTech = [
+  { value: '', label: 'Ordernar' },
+  { value: 'az', label: 'Ascendente' },
+  { value: 'za', label: 'Descendente' },
+]
