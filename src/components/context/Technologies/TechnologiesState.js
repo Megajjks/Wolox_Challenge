@@ -6,17 +6,27 @@ import {
   restructureData,
   updateTeachnologie,
   saveDataLocalStorage,
+  filterByField,
+  orderList,
 } from '../../../helpers'
 import {
   GET_TECHNOLOGIES,
   GET_TECHNOLOGIES_SUCCESS,
   GET_TECHNOLOGIES_ERROR,
   ADD_REMOVE_FAVORITE_LIST,
+  UPDATE_QUERY_FILTER,
+  FILTER_TEACHNOLOGIES,
 } from '../types'
 
 const TechnologiesState = (props) => {
   const initialState = {
     technologiesList: [],
+    clonList: [],
+    filterParams: {
+      filterName: '',
+      filterType: '',
+      filterSort: '',
+    },
     loader: false,
     error: '',
   }
@@ -63,28 +73,81 @@ const TechnologiesState = (props) => {
 
   // Add or remove one technologies how teachFavorite
   const addOrRemoveFavoriteTech = (technologie) => {
-    const updateData = updateTeachnologie(
+    const updateDataTechList = updateTeachnologie(
       state.technologiesList,
+      technologie.id,
+      technologie.isFavorite,
+    )
+    const updateDataClonList = updateTeachnologie(
+      state.clonList,
       technologie.id,
       technologie.isFavorite,
     )
     dispatch({
       type: ADD_REMOVE_FAVORITE_LIST,
-      payload: updateData,
+      payload: { teachList: updateDataTechList, cloneList: updateDataClonList },
     })
-    saveDataLocalStorage('technologiesList', updateData)
+    saveDataLocalStorage('technologiesList', updateDataClonList)
+  }
+
+  // update the query of filter inputs
+  const updateQuery = (e) => {
+    dispatch({
+      type: UPDATE_QUERY_FILTER,
+      payload: { field: e.target.name, value: e.target.value },
+    })
+  }
+
+  // filter the data
+  const filterByName = () => {
+    dispatch({
+      type: FILTER_TEACHNOLOGIES,
+      payload: filterByField(
+        state.clonList,
+        'tech',
+        state.filterParams.filterName,
+      ),
+    })
+  }
+  const filterByType = () => {
+    dispatch({
+      type: FILTER_TEACHNOLOGIES,
+      payload: filterByField(
+        state.clonList,
+        'type',
+        state.filterParams.filterType,
+      ),
+    })
+  }
+  const orderTechnologies = () => {
+    dispatch({
+      type: FILTER_TEACHNOLOGIES,
+      payload: orderList(state.clonList, state.filterParams.filterSort),
+    })
+  }
+  const resetFilterData = () => {
+    dispatch({
+      type: FILTER_TEACHNOLOGIES,
+      payload: state.clonList,
+    })
   }
 
   return (
     <TechnologiesContext.Provider
       value={{
         technologiesList: state.technologiesList,
-        favoriteList: state.favoriteList,
+        clonList: state.clonList,
+        filterParams: state.filterParams,
         loader: state.loader,
         error: state.error,
         getTechnologies,
         addOrRemoveFavoriteTech,
         getTechnologiesWithoutApi,
+        updateQuery,
+        filterByName,
+        filterByType,
+        orderTechnologies,
+        resetFilterData,
       }}
     >
       {props.children}

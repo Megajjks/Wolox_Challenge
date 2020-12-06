@@ -19,6 +19,5 @@
 }
 
 .accent-blue-text {
-  font-weight: 500;
-  color: $fontColorSecundary;
+  @include acent-Text(500, $fontColorSecundary);
 }

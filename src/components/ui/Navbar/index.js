@@ -12,7 +12,7 @@ const Navbar = () => {
   const [menu, setMenu] = useState(false)
   const navItems = ['Inicio', 'Beneficios']
   const technologiesContext = useContext(TechnologiesContext)
-  const { technologiesList } = technologiesContext
+  const { clonList } = technologiesContext
 
   const ShowMenu = () => {
     setMenu(!menu)
@@ -35,16 +35,16 @@ const Navbar = () => {
           url={localStorage.getItem('user') ? '/technologies' : '/register'}
           size="50%"
         />
-        {countTechnologiesFav(technologiesList) > 0 && (
+        {countTechnologiesFav(clonList) > 0 && (
           <div className="favorite-box">
-            <p>{countTechnologiesFav(technologiesList)}</p>
+            <p>{countTechnologiesFav(clonList)}</p>
           </div>
         )}
       </ul>
       <div className="buttons-mobile">
-        {countTechnologiesFav(technologiesList) > 0 && (
+        {countTechnologiesFav(clonList) > 0 && (
           <div className="favorite-box">
-            <p>{countTechnologiesFav(technologiesList)}</p>
+            <p>{countTechnologiesFav(clonList)}</p>
           </div>
         )}
         <img

@@ -1,3 +1,4 @@
+@import '../styleVariables.scss';
 /* Boxes */
 @mixin flexRowBox(
   $direction: row,
@@ -59,4 +60,9 @@
     font-size: 1.8rem;
     margin: 1rem 0;
   }
+}
+
+@mixin acent-Text($weight: 700, $color: $fontColorSecundary) {
+  font-weight: $weight;
+  color: $color;
 }

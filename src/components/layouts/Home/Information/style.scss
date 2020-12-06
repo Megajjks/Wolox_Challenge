@@ -54,10 +54,8 @@
 }
 
 .accent-green-text {
-  font-weight: 700;
-  color: $fontColorAccent;
+  @include acent-Text(700, $fontColorAccent);
 }
 .accent-blue-text {
-  font-weight: 700;
-  color: $fontColorSecundary;
+  @include acent-Text;
 }

@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react'
 import TechnologiesContext from '../../context/Technologies/TechnologiesContext'
 import TechnologiesCardList from '../../ui/TechnologiesCardList'
 import TechnologiesSection from '../../ui/TechnologiesSection'
+import FilterBar from '../../ui/FilterBar'
 import Spinner from '../../ui/Spinner'
 import './style.scss'
 
@@ -9,6 +10,7 @@ const Technologies = () => {
   const technologiesContext = useContext(TechnologiesContext)
   const {
     technologiesList,
+    clonList,
     loader,
     error,
     getTechnologies,
@@ -22,10 +24,15 @@ const Technologies = () => {
     if (error) {
       return <h2>{error}</h2>
     }
-    if (technologiesList.length <= 0) {
+    if (clonList.length <= 0) {
       return <h2>Sin Tecnologias</h2>
     }
-    return <TechnologiesCardList technologies={technologiesList} />
+    return (
+      <>
+        <FilterBar />
+        <TechnologiesCardList technologies={technologiesList} />
+      </>
+    )
   }
 
   return (

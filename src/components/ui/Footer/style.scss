@@ -1,9 +1,8 @@
 @import '../../../styleVariables.scss';
+@import '../../mixins.scss';
 
 .footer-Wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexRowBox(row, nowrap, center, center);
   background-image: url('../../../assets/images/Backgrounds/Bg_Footer.png');
   background-color: $background;
   background-repeat: no-repeat;

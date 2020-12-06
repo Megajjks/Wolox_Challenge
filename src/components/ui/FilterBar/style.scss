@@ -1,0 +1,74 @@
+@import '../../../styleVariables.scss';
+@import '../../mixins.scss';
+
+.filter-wrapper {
+  @include flexRowBox(row, nowrap, space-between, center);
+  width: 88%;
+  margin: 1rem 0 2rem 0;
+  @media (max-width: $phone-portrait) {
+    @include flexColumnBox;
+    width: 88%;
+  }
+}
+
+.select-wrapper {
+  @include flexRowBox(row, nowrap, flex-end, center);
+  @media (max-width: $phone-portrait) {
+    margin-top: 0.5rem;
+    justify-content: center;
+  }
+}
+
+.input-filter {
+  width: 40%;
+  background: #f3f4f8
+    url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat
+    9px center;
+  @media (max-width: $phone-portrait) {
+    width: 60%;
+  }
+  @media (max-width: $min-phone-portrait) {
+    width: 80%;
+  }
+}
+.select-filter {
+  width: 28%;
+  margin-right: 2rem;
+  @media (max-width: $phone-portrait) {
+    width: 40%;
+  }
+  @media (max-width: $min-phone-portrait) {
+    width: 50%;
+    margin-right: 1rem;
+  }
+}
+
+.input-filter,
+.select-filter {
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+  text-align-last: center;
+  padding: 0.4rem;
+  height: 35px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: rgba($color: #1b263c, $alpha: 0.1);
+
+  &:hover {
+    background-color: rgba($color: #15a9e5, $alpha: 0.1);
+  }
+
+  &:focus {
+    border-color: rgba($color: #15a9e5, $alpha: 0.5);
+    border-width: 2px;
+    border-style: solid;
+    outline: none;
+    box-sizing: border-box;
+  }
+  @media (max-width: $table-portrait) {
+    font-size: 0.8rem;
+  }
+}
