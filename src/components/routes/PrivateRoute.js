@@ -1,7 +1,7 @@
 import { Route, Redirect } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ render: Component, ...rest }) => {
   const isAuthenticated = useAuth()
 
   return (
