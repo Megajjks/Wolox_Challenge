@@ -1,4 +1,5 @@
 import { useHistory } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import './style.scss'
 const Button = ({ type, title, url, colortxt, typeRedirect, isDisabled }) => {
   const history = useHistory()
@@ -18,6 +19,14 @@ const Button = ({ type, title, url, colortxt, typeRedirect, isDisabled }) => {
       {title}
     </button>
   )
+}
+
+Button.propType = {
+  type: PropTypes.string,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  colortxt: PropTypes.string,
+  isDisabled: PropTypes.bool,
 }
 
 export default Button

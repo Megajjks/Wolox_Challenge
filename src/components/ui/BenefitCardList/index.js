@@ -1,4 +1,5 @@
 import BenefitCard from '../BenefitCard'
+import PropTypes from 'prop-types'
 import './style.scss'
 
 const BenefitCardList = ({ benefits }) => {
@@ -9,6 +10,10 @@ const BenefitCardList = ({ benefits }) => {
       ))}
     </div>
   )
+}
+
+BenefitCardList.propType = {
+  benefits: PropTypes.array.isRequired,
 }
 
 export default BenefitCardList

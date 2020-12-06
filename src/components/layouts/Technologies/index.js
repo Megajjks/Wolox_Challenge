@@ -37,7 +37,7 @@ const Technologies = () => {
 
   return (
     <div className="technologies-box">
-      <h1>
+      <h1 data-testid="titulo">
         Lista de <span className="accent-blue-text">Tecnologias</span>
       </h1>
       {loader ? <Spinner /> : renderTechnologiesList()}

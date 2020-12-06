@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import TechnologiesContext from '../../context/Technologies/TechnologiesContext'
 import TechnologiesCard from '../TechnologiesCard'
+import PropTypes from 'prop-types'
 import './style.scss'
 const TechnologiesCardList = ({ technologies }) => {
   const technologiesContext = useContext(TechnologiesContext)
@@ -21,6 +22,10 @@ const TechnologiesCardList = ({ technologies }) => {
       ))}
     </div>
   )
+}
+
+TechnologiesCardList.propType = {
+  technologies: PropTypes.array.isRequired,
 }
 
 export default TechnologiesCardList
