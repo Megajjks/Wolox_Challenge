@@ -10,6 +10,7 @@ const Technologies = () => {
   const technologiesContext = useContext(TechnologiesContext)
   const {
     technologiesList,
+    clonList,
     loader,
     error,
     getTechnologies,
@@ -23,7 +24,7 @@ const Technologies = () => {
     if (error) {
       return <h2>{error}</h2>
     }
-    if (technologiesList.length <= 0) {
+    if (clonList.length <= 0) {
       return <h2>Sin Tecnologias</h2>
     }
     return (

@@ -61,6 +61,44 @@ export const countTechnologiesFav = (data) => {
   return totalTechnologies.length
 }
 
+/* Filters */
+export const filterByField = (data, field, query) => {
+  const newData = data.filter((item) =>
+    item[field].toLowerCase().includes(query.toLowerCase()),
+  )
+  console.log(field)
+  console.log(query)
+  console.log(newData)
+  return newData
+}
+
+export const orderList = (list, type) => {
+  switch (type) {
+    case 'az':
+      return list.sort((a, b) => {
+        if (a.tech.toLowerCase() < b.tech.toLowerCase()) {
+          return -1
+        }
+        if (b.tech.toLowerCase() < a.tech.toLowerCase()) {
+          return 1
+        }
+        return 0
+      })
+    case 'za':
+      return list.sort((a, b) => {
+        if (a.tech.toLowerCase() > b.tech.toLowerCase()) {
+          return -1
+        }
+        if (b.tech.toLowerCase() > a.tech.toLowerCase()) {
+          return 1
+        }
+        return 0
+      })
+    default:
+      return list
+  }
+}
+
 /* Data of benefits in the landingpage */
 export const benefits = [
   {
@@ -260,8 +298,8 @@ export const countrys = [
 /* Data of types technologies */
 export const typesTech = [
   { value: '', label: 'Filtrar por' },
-  { value: 'FrontEnd', label: 'Front-End' },
-  { value: 'BackEnd', label: 'Back-End' },
+  { value: 'Front-End', label: 'Front-End' },
+  { value: 'Back-End', label: 'Back-End' },
   { value: 'Mobile', label: 'Mobile' },
 ]
 
