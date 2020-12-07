@@ -66,9 +66,6 @@ export const filterByField = (data, field, query) => {
   const newData = data.filter((item) =>
     item[field].toLowerCase().includes(query.toLowerCase()),
   )
-  console.log(field)
-  console.log(query)
-  console.log(newData)
   return newData
 }
 

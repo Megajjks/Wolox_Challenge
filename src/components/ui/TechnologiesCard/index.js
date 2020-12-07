@@ -1,5 +1,6 @@
-import './style.scss'
 import FavoriteButton from '../FavoriteButton'
+import PropTypes from 'prop-types'
+import './style.scss'
 const TechnologiesCard = ({ item, onClick }) => {
   const { tech, year, author, license, language, type, logo } = item
   return (
@@ -26,6 +27,19 @@ const TechnologiesCard = ({ item, onClick }) => {
       </p>
     </div>
   )
+}
+
+TechnologiesCard.propType = {
+  item: PropTypes.shape({
+    tech: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    license: PropTypes.string.isRequired,
+    language: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    logo: PropTypes.string.isRequired,
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
 }
 
 export default TechnologiesCard
