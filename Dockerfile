@@ -1,6 +1,6 @@
 FROM node:12.18.2-buster AS builder
 WORKDIR /usr/src/app
-COPY package.json package-lock.json ./
+COPY package.json ./
 RUN npm install
 
 ENV PATH="./node_modules/.bin:$PATH"
