@@ -1,0 +1,116 @@
+@import '../../../styleVariables.scss';
+@import '../../mixins.scss';
+
+.navbar-wrapper {
+  @include flexRowBox(row, nowrap, space-between, center);
+  background-image: url('../../../assets/images/Backgrounds/Bg_Header.png');
+  background-color: $background;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+  padding: 2.5rem 4rem;
+
+  & > img {
+    max-width: 15%;
+    @media (max-width: $table-portrait) {
+      max-width: 30%;
+    }
+  }
+}
+
+.menu {
+  @include flexRowBox(row, nowrap, space-around, center);
+  width: inherit;
+  line-height: 20px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  & > li {
+    @include Menu-Item;
+  }
+  @media (max-width: $table-portrait) {
+    display: none;
+  }
+}
+
+.buttons-mobile {
+  @include flexRowBox(row, nowrap, flex-end, center);
+  display: none;
+  & > img {
+    z-index: 30;
+    max-width: 9%;
+  }
+  @media (max-width: $table-portrait) {
+    display: flex;
+  }
+}
+
+.menu-mobile {
+  @include flexColumnBox;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.9;
+  z-index: 20;
+  margin: 0;
+  padding: 1rem;
+  width: inherit;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  font-size: 32px;
+  transition: all 2s ease;
+  & > li {
+    @include Menu-Item;
+  }
+}
+
+.favorite-box {
+  @include flexRowBox(row, nowrap, center, flex-end);
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 42px;
+  height: 42px;
+  background-image: url('../../../assets/images/programming.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  & > p {
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: $backgroundSecundary;
+    color: $fontColorWhite;
+    margin: 0;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  @media (max-width: $table-portrait) {
+    width: 32px;
+    height: 32px;
+    & > p {
+      width: 15px;
+      height: 15px;
+      font-size: 12px;
+    }
+  }
+  @media (max-width: $min-phone-landscape) {
+    width: 20px;
+    height: 20px;
+    & > p {
+      width: 10px;
+      height: 10px;
+      font-size: 8px;
+    }
+  }
+  @media (max-width: $min-phone-portrait) {
+    width: 15px;
+    height: 15px;
+  }
+}

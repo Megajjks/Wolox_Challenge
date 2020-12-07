@@ -1,0 +1,141 @@
+@import '../../../styleVariables.scss';
+@import '../../mixins.scss';
+
+.register-wrapper {
+  @include flexColumnBox;
+  background-image: url('../../../assets/images/Backgrounds//Bg_Footer.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 1rem 8rem 2rem 8rem;
+
+  & > h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  & > h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-align: justify;
+    margin-top: 0;
+  }
+  @media (max-width: $phone-portrait) {
+    padding: 1rem 3rem 2rem 3rem;
+    & > h1 {
+      font-size: 1.8rem;
+    }
+    & > h3 {
+      font-size: 1rem;
+    }
+  }
+}
+
+.form-wrapper {
+  @include flexColumnBox;
+  width: 100%;
+
+  & > label {
+    width: 100%;
+    font-weight: 500;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  & > input,
+  select {
+    margin: 0.5rem 0 2rem 0;
+    width: 60%;
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-align: center;
+    text-align-last: center;
+    padding: 0.5rem;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    background-color: rgba($color: #1b263c, $alpha: 0.1);
+
+    &:hover {
+      background-color: rgba($color: #15a9e5, $alpha: 0.1);
+    }
+
+    &:focus {
+      border-color: rgba($color: #15a9e5, $alpha: 0.5);
+      border-width: 2px;
+      border-style: solid;
+      outline: none;
+      box-sizing: border-box;
+    }
+  }
+  @media (max-width: $table-portrait) {
+    & > input,
+    select {
+      width: 100%;
+    }
+  }
+  @media (max-width: $phone-portrait) {
+    & > label {
+      font-size: 1rem;
+    }
+    & > input,
+    select {
+      width: 80%;
+      font-size: 0.8rem;
+    }
+  }
+  @media (max-width: $min-phone-landscape) {
+    & > input,
+    select {
+      width: 100%;
+    }
+  }
+}
+
+.terms-box {
+  @include flexRowBox(row, nowraper, center, center);
+  margin-bottom: 2rem;
+  & > label {
+    text-align: center;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    @media (max-width: $phone-portrait) {
+      margin-left: 0.1rem;
+    }
+  }
+}
+
+.accent-green-text {
+  @include acent-Text(700, $fontColorAccent);
+}
+.accent-blue-text {
+  @include acent-Text;
+}
+
+.info_box {
+  margin-top: -1.5rem;
+  margin-bottom: 1rem;
+  & > .warning_txt {
+    color: #5c1513;
+  }
+  & > p {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  & > ul {
+    margin-top: 0;
+  }
+  @media (max-width: $phone-portrait) {
+    & > p {
+      font-size: 0.8rem;
+    }
+    & > ul > li,
+    select {
+      font-size: 0.8rem;
+    }
+  }
+}

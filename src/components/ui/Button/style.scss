@@ -1,0 +1,65 @@
+@import '../../../styleVariables.scss';
+
+@mixin Button($bkgColor: $backgroundSecundary, $colortxt: $fontColorWhite) {
+  background-color: $bkgColor;
+  font-family: montserrat;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 0.6rem 5rem;
+  color: $colortxt;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  &:disabled,
+  [disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
+}
+
+.button-Secundary {
+  @include Button(transparent, $fontColorSecundary);
+  border: 2px solid $backgroundSecundary;
+  &:hover {
+    color: $fontColorWhite;
+    background-color: $backgroundSecundary;
+  }
+  &:active {
+    background-color: rgba(21, 169, 229, 0.6);
+  }
+  &:disabled,
+  [disabled],
+  :hover {
+    cursor: auto;
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
+}
+.button-Primary {
+  @include Button;
+  border: 2px solid $backgroundSecundary;
+  box-shadow: 2px 2px 5px #999;
+  &:hover {
+    color: $fontColorWhite;
+    border: 2px solid #051937;
+    background-color: #051937;
+  }
+  &:active {
+    background-color: rgba(5, 25, 55, 0.9);
+    box-shadow: none;
+  }
+  &:disabled,
+  [disabled],
+  :hover {
+    cursor: auto;
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
+}

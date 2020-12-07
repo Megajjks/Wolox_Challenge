@@ -1,0 +1,6 @@
+@import '../../../styleVariables.scss';
+@import '../../mixins.scss';
+
+.benefits-Wrapper {
+  @include flexRowBox(row, wrap, center, center);
+}

@@ -1,0 +1,13 @@
+@import '../../../styleVariables.scss';
+.heart-sprites {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+.heart-sprites {
+  background-image: url('../../../assets/images/favorite.png');
+}
+input:checked + .heart-sprites {
+  background-position: -2800px 0;
+  transition: background 0.8s steps(28);
+}

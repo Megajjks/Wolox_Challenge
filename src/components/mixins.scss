@@ -1,0 +1,68 @@
+@import '../styleVariables.scss';
+/* Boxes */
+@mixin flexRowBox(
+  $direction: row,
+  $wrap: wrap,
+  $mainAxis: space-around,
+  $crossAxis: center
+) {
+  width: inherit;
+  display: flex;
+  flex-flow: $direction $wrap;
+  justify-content: $mainAxis;
+  align-items: $crossAxis;
+}
+
+@mixin flexColumnBox($mainAxis: center, $crossAxis: center) {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: $mainAxis;
+  align-items: $crossAxis;
+}
+
+@mixin gridMasonry(
+  $gapX: 20px,
+  $gapY: 10px,
+  $justifyItems: center,
+  $justifyContent: center,
+  $alignItems: start,
+  $sizeCard: 280px
+) {
+  display: grid;
+  gap: $gapX $gapY;
+  justify-items: $justifyItems;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  grid-template-columns: repeat(auto-fill, minmax($sizeCard, 1fr));
+  grid-auto-flow: row dense;
+}
+
+/* Other stuff */
+
+@mixin Menu-Item {
+  list-style-type: none;
+  margin-right: 3.5rem;
+  cursor: pointer;
+  & > a {
+    color: $fontColor;
+    font-size: 1.3rem;
+    transition: color 0.5s ease;
+  }
+  & > a:hover {
+    color: $fontColorSecundary;
+  }
+  & > a:link,
+  a:visited {
+    text-decoration: none;
+  }
+  @media (max-width: $table-portrait) {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+  }
+}
+
+@mixin acent-Text($weight: 700, $color: $fontColorSecundary) {
+  font-weight: $weight;
+  color: $color;
+}
